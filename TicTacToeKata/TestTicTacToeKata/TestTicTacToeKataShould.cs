@@ -17,6 +17,13 @@ namespace TestTicTacToeKata
             action.Should().Throw<IncorrectTurnException>().WithMessage("X player must be first");
         }
 
+        [Fact]
+        public void XPlayerAlwaysPlayFirst()
+        {
+            var action = () => new Board().play("X");
+
+            action.Should().NotThrow<IncorrectTurnException>();
+        }
 
     }
 }
