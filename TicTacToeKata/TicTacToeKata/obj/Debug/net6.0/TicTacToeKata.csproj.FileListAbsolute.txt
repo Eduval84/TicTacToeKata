@@ -1,0 +1,15 @@
+C:\Users\evalderrama\source\Cursos\Exeal\TicTacToeKata\TicTacToeKata\TicTacToeKata\obj\Debug\net6.0\TicTacToeKata.csproj.AssemblyReference.cache
+C:\Users\evalderrama\source\Cursos\Exeal\TicTacToeKata\TicTacToeKata\TicTacToeKata\obj\Debug\net6.0\TicTacToeKata.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\evalderrama\source\Cursos\Exeal\TicTacToeKata\TicTacToeKata\TicTacToeKata\obj\Debug\net6.0\TicTacToeKata.AssemblyInfoInputs.cache
+C:\Users\evalderrama\source\Cursos\Exeal\TicTacToeKata\TicTacToeKata\TicTacToeKata\obj\Debug\net6.0\TicTacToeKata.AssemblyInfo.cs
+C:\Users\evalderrama\source\Cursos\Exeal\TicTacToeKata\TicTacToeKata\TicTacToeKata\obj\Debug\net6.0\TicTacToeKata.csproj.CoreCompileInputs.cache
+C:\Users\evalderrama\source\Cursos\Exeal\TicTacToeKata\TicTacToeKata\TicTacToeKata\bin\Debug\net6.0\TicTacToeKata.exe
+C:\Users\evalderrama\source\Cursos\Exeal\TicTacToeKata\TicTacToeKata\TicTacToeKata\bin\Debug\net6.0\TicTacToeKata.deps.json
+C:\Users\evalderrama\source\Cursos\Exeal\TicTacToeKata\TicTacToeKata\TicTacToeKata\bin\Debug\net6.0\TicTacToeKata.runtimeconfig.json
+C:\Users\evalderrama\source\Cursos\Exeal\TicTacToeKata\TicTacToeKata\TicTacToeKata\bin\Debug\net6.0\TicTacToeKata.dll
+C:\Users\evalderrama\source\Cursos\Exeal\TicTacToeKata\TicTacToeKata\TicTacToeKata\bin\Debug\net6.0\TicTacToeKata.pdb
+C:\Users\evalderrama\source\Cursos\Exeal\TicTacToeKata\TicTacToeKata\TicTacToeKata\obj\Debug\net6.0\TicTacToeKata.dll
+C:\Users\evalderrama\source\Cursos\Exeal\TicTacToeKata\TicTacToeKata\TicTacToeKata\obj\Debug\net6.0\refint\TicTacToeKata.dll
+C:\Users\evalderrama\source\Cursos\Exeal\TicTacToeKata\TicTacToeKata\TicTacToeKata\obj\Debug\net6.0\TicTacToeKata.pdb
+C:\Users\evalderrama\source\Cursos\Exeal\TicTacToeKata\TicTacToeKata\TicTacToeKata\obj\Debug\net6.0\TicTacToeKata.genruntimeconfig.cache
+C:\Users\evalderrama\source\Cursos\Exeal\TicTacToeKata\TicTacToeKata\TicTacToeKata\obj\Debug\net6.0\ref\TicTacToeKata.dll
