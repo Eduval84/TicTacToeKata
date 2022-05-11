@@ -8,7 +8,7 @@
         {
             if (player == null) throw new ArgumentNullException("player can not be null");
 
-            if (player.ToUpper() == "O") throw new Exception("X player must be first");
+            if (player.ToUpper() == "O") throw new IncorrectTurnException("X player must be first");
 
         }
     }
