@@ -6,8 +6,8 @@ In random order
 
 + there are two players in the game (X and O)
 + x always plays first
-+ + players take turns taking fields until the game is over
-+ + Can,t play twice in the same position
++ players take turns taking fields until the game is over
++ Can,t play twice in the same position
 + a game has nine fields in a 3x3 grid
 + + a game is over when all fields in a row are taken by a player
 + a game is over when all fields in a diagonal are taken by a player
