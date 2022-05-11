@@ -2,7 +2,7 @@ using Xunit;
 
 namespace TestTicTacToeKata
 {
-    public class UnitTest1
+    public class TicTacToeKataShould
     {
         [Fact]
         public void Test1()
