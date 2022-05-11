@@ -10,13 +10,13 @@ namespace TestTicTacToeKata
     public class TicTacToeKataShould
     {
         [Fact]
-        public void XPlayerAlwaysPlayFirst()
+        public void OPlayerCanNotPlayFirst()
         {
             var action = () =>new Board().play("O");
 
             action.Should().Throw<IncorrectTurnException>().WithMessage("X player must be first");
         }
 
-        
+
     }
 }
