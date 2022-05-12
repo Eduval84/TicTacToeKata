@@ -29,8 +29,8 @@ namespace TestTicTacToeKata
         public void APlayerCanNotPlayTwice()
         {
             Board board = new Board();
-            var action = () => board.play("X");
-            action= () => board.play("X");
+            board.play("X");
+            var action= () => board.play("X");
 
             action.Should().Throw<IncorrectTurnException>().WithMessage("Incorrect Turn !!, player can not play twice.");
         }
