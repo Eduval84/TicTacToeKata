@@ -9,12 +9,18 @@ namespace TestTicTacToeKata
 {
     public class TicTacToeKataShould
     {
-        private Board Board = new Board();
+        private readonly Board _board;
+        
+
+        public TicTacToeKataShould()
+        {
+            _board= new Board();
+        }
 
         [Fact]
         public void OPlayerCanNotPlayFirst()
         {
-            var action = () =>  Board.play(Player.O);
+            var action = () =>  _board.play(Player.O);
 
             action.Should().Throw<IncorrectTurnException>().WithMessage("X player must be first");
         }
@@ -22,7 +28,7 @@ namespace TestTicTacToeKata
         [Fact]
         public void XPlayerAlwaysPlayFirst()
         {
-            var action = () => Board.play(Player.X);
+            var action = () => _board.play(Player.X);
 
             action.Should().NotThrow<IncorrectTurnException>();
         }
@@ -30,10 +36,20 @@ namespace TestTicTacToeKata
         [Fact]
         public void APlayerCanNotPlayTwice()
         {
-            Board.play(Player.X);
-            var action= () => Board.play(Player.X);
+            _board.play(Player.X);
+            var action= () => _board.play(Player.X);
 
             action.Should().Throw<IncorrectTurnException>().WithMessage("Incorrect Turn !!, player can not play twice.");
+        }
+
+        [Fact]
+        public void AllowPlayersToPlayAlternatively()
+        {
+            _board.play(Player.X);
+            _board.play(Player.O);
+            var action = () => _board.play(Player.X);
+
+            action.Should().NotThrow<IncorrectTurnException>();
         }
 
     }
