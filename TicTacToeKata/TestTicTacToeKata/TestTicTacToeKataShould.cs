@@ -52,5 +52,11 @@ namespace TestTicTacToeKata
             action.Should().NotThrow<IncorrectTurnException>();
         }
 
+        [Fact]
+        public void APlayerCanNotPlayInAlreadyUsedPosition()
+        {
+
+        }
+
     }
 }
