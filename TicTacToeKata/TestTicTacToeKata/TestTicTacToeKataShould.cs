@@ -36,8 +36,8 @@ namespace TestTicTacToeKata
         public void APlayerCanNotPlayTwice2()
         {
             _board.play(Player.X, 0, 0);
-            _board.play(Player.O, 0, 0);
-            var action = () => _board.play(Player.O, 0, 0);
+            _board.play(Player.O, 1, 0);
+            var action = () => _board.play(Player.O, 0, 1);
 
             action.Should().Throw<IncorrectTurnException>().WithMessage("Incorrect Turn !!, player can not play twice.");
         }
@@ -55,9 +55,9 @@ namespace TestTicTacToeKata
         [Fact]
         public void AllowPlayersToPlayAlternatively()
         {
-            _board.play(Player.X, 0, 0);
-            _board.play(Player.O, 0, 0);
-            var action = () => _board.play(Player.X, 0, 0);
+            _board.play(Player.X, 1, 0);
+            _board.play(Player.O, 0, 1);
+            var action = () => _board.play(Player.X, 1, 1);
 
             action.Should().NotThrow<IncorrectTurnException>();
         }
@@ -67,7 +67,7 @@ namespace TestTicTacToeKata
         {
             _board.play(Player.X,0,0);
 
-            var action = () => _board.play(Player.X, 0, 0);
+            var action = () => _board.play(Player.O, 0, 0);
 
             action.Should().Throw<IncorrectPosition>().WithMessage("Can't play in already used position !!!"); ;
         }
