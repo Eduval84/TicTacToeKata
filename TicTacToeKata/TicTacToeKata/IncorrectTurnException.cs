@@ -1,8 +1,9 @@
-﻿namespace TicTacToeKata;
-
-public class IncorrectTurnException : Exception
+﻿namespace TicTacToeKata
 {
-    public IncorrectTurnException(string message) : base(message)
+    public class IncorrectTurnException : Exception
     {
+        public IncorrectTurnException(string message) : base(message)
+        {
+        }
     }
 }

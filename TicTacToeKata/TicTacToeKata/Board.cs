@@ -10,7 +10,7 @@
         {
             if (player == null) throw new ArgumentNullException("player can not be null");
             
-            if (player == SecondPlayer) throw new IncorrectTurnException("X player must be first");
+            if (player == LastPlayer) throw new IncorrectTurnException("X player must be first");
 
             if (player.Equals(LastPlayer)) throw  new IncorrectTurnException("Incorrect Turn !!, player can not play twice.");
             
