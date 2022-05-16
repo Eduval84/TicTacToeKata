@@ -2,22 +2,22 @@
 
 public class Board
 {
-    private Player LastPlayer= Player.Null;
-    private readonly String [,] BoardCoordinates = new String[3,3];
+    private Player _lastPlayer= Player.Null;
+    private readonly string [,] _boardCoordinates = new String[3,3];
 
     public static void Main(){}
         
-    public void play(Player player, int X, int Y)
+    public void Play(Player player, int X, int Y)
     {
-        if (player == Player.O && LastPlayer == Player.Null) throw new IncorrectTurnException("X player must be first");
+        if (player == Player.O && _lastPlayer == Player.Null) throw new IncorrectTurnException("X player must be first");
 
-        if (player.Equals(LastPlayer)) throw  new IncorrectTurnException("Incorrect Turn !!, player can not play twice.");
+        if (player.Equals(_lastPlayer)) throw  new IncorrectTurnException("Incorrect Turn !!, player can not play twice.");
             
-        LastPlayer = player;
+        _lastPlayer = player;
 
-        if (!string.IsNullOrEmpty(BoardCoordinates[X, Y])) throw new IncorrectPosition("Can't play in already used position !!!");
+        if (!string.IsNullOrEmpty(_boardCoordinates[X, Y])) throw new IncorrectPosition("Can't play in already used position !!!");
 
-        BoardCoordinates[X, Y] = player.ToString();
+        _boardCoordinates[X, Y] = player.ToString();
 
     }
 }
