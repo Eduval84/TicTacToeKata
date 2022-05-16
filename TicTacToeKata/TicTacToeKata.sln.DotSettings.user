@@ -1,10 +1,15 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=22d018d7_002D891a_002D420a_002D92c0_002D41383373556c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="TicTacToeKataShould #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::1D1066FE-EF3D-495F-81CD-8E0DEDB5D91E::net6.0::TestTicTacToeKata.TicTacToeKataShould&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=422f772c_002D9282_002D4328_002Da5cd_002D595901ab7409/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TicTacToeKataShould" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::1D1066FE-EF3D-495F-81CD-8E0DEDB5D91E::net6.0::TestTicTacToeKata.TicTacToeKataShould&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=7bdce562_002D9b7e_002D4ef8_002Da5ff_002Da073d0f33936/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="TicTacToeKataShould #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=7bdce562_002D9b7e_002D4ef8_002Da5ff_002Da073d0f33936/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TicTacToeKataShould #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::1D1066FE-EF3D-495F-81CD-8E0DEDB5D91E::net6.0::TestTicTacToeKata.TicTacToeKataShould&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
