@@ -3,7 +3,7 @@
 public class Board
 {
     private Player _lastPlayer= Player.Null;
-    private readonly string [,] _boardCoordinates = new String[3,3];
+    private readonly string [,] _boardCoordinates = new string[3,3];
 
     public static void Main(){}
         
