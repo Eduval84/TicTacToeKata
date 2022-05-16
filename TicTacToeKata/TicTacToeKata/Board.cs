@@ -1,19 +1,16 @@
-﻿using Microsoft.VisualBasic;
+﻿namespace TicTacToeKata;
 
-namespace TicTacToeKata
+public class Board
 {
-    public class Board
-    {
-        private Player LastPlayer= Player.Null;
-        public static void Main(){}
+    private Player LastPlayer= Player.Null;
+    public static void Main(){}
         
-        public void play(Player player)
-        {
-            if (player == Player.O && LastPlayer == Player.Null) throw new IncorrectTurnException("X player must be first");
+    public void play(Player player, int X, int Y)
+    {
+        if (player == Player.O && LastPlayer == Player.Null) throw new IncorrectTurnException("X player must be first");
 
-            if (player.Equals(LastPlayer)) throw  new IncorrectTurnException("Incorrect Turn !!, player can not play twice.");
+        if (player.Equals(LastPlayer)) throw  new IncorrectTurnException("Incorrect Turn !!, player can not play twice.");
             
-            LastPlayer = player;
-        }
+        LastPlayer = player;
     }
 }

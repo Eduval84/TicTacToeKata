@@ -1,4 +1,3 @@
-using System;
 using FluentAssertions;
 using Xunit;
 using TicTacToeKata;
@@ -20,7 +19,7 @@ namespace TestTicTacToeKata
         [Fact]
         public void OPlayerCanNotPlayFirst()
         {
-            var action = () =>  _board.play(Player.O);
+            var action = () =>  _board.play(Player.O, 0, 0);
 
             action.Should().Throw<IncorrectTurnException>().WithMessage("X player must be first");
         }
@@ -28,7 +27,7 @@ namespace TestTicTacToeKata
         [Fact]
         public void XPlayerAlwaysPlayFirst()
         {
-            var action = () => _board.play(Player.X);
+            var action = () => _board.play(Player.X, 0, 0);
 
             action.Should().NotThrow<IncorrectTurnException>();
         }
@@ -36,9 +35,9 @@ namespace TestTicTacToeKata
         [Fact]
         public void APlayerCanNotPlayTwice2()
         {
-            _board.play(Player.X);
-            _board.play(Player.O);
-            var action = () => _board.play(Player.O);
+            _board.play(Player.X, 0, 0);
+            _board.play(Player.O, 0, 0);
+            var action = () => _board.play(Player.O, 0, 0);
 
             action.Should().Throw<IncorrectTurnException>().WithMessage("Incorrect Turn !!, player can not play twice.");
         }
@@ -46,8 +45,8 @@ namespace TestTicTacToeKata
         [Fact]
         public void APlayerCanNotPlayTwice()
         {
-            _board.play(Player.X);
-            var action= () => _board.play(Player.X);
+            _board.play(Player.X, 0, 0);
+            var action= () => _board.play(Player.X, 0, 0);
 
             action.Should().Throw<IncorrectTurnException>().WithMessage("Incorrect Turn !!, player can not play twice.");
         }
@@ -56,9 +55,9 @@ namespace TestTicTacToeKata
         [Fact]
         public void AllowPlayersToPlayAlternatively()
         {
-            _board.play(Player.X);
-            _board.play(Player.O);
-            var action = () => _board.play(Player.X);
+            _board.play(Player.X, 0, 0);
+            _board.play(Player.O, 0, 0);
+            var action = () => _board.play(Player.X, 0, 0);
 
             action.Should().NotThrow<IncorrectTurnException>();
         }
@@ -66,7 +65,11 @@ namespace TestTicTacToeKata
         [Fact]
         public void APlayerCanNotPlayInAlreadyUsedPosition()
         {
+            _board.play(Player.X,0,0);
 
+            var action = () => _board.play(Player.X, 0, 0);
+
+            action.Should().Throw<IncorrectPosition>().WithMessage("Can't play in already used position !!!"); ;
         }
 
     }
