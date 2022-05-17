@@ -21,7 +21,7 @@ namespace TestTicTacToeKata
         {
             var action = () =>  _board.Play(Player.O, 0, 0);
 
-            action.Should().Throw<IncorrectTurnException>().WithMessage("X player must be first");
+            action.Should().Throw<IncorrectTurnException>().WithMessage("X player must be first.");
         }
 
         [Fact]
@@ -69,7 +69,16 @@ namespace TestTicTacToeKata
 
             var action = () => _board.Play(Player.O, 0, 0);
 
-            action.Should().Throw<IncorrectPosition>().WithMessage("Can't play in already used position !!!"); ;
+            action.Should().Throw<IncorrectPosition>().WithMessage("Can't play in already used position."); ;
+        }
+
+        [Fact]
+        public void ABoardHasNineFiedlsInA3x3Grid()
+        {
+            var action = () => _board.Play(Player.X, 4, 0);
+
+            action.Should().Throw<IncorrectPosition>().WithMessage("Can't play in this position, Board is a 3x3 grid."); ;
+
         }
 
     }

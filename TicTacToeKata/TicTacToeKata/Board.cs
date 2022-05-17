@@ -1,4 +1,6 @@
-﻿namespace TicTacToeKata;
+﻿using Microsoft.VisualBasic;
+
+namespace TicTacToeKata;
 
 public class Board
 {
@@ -16,14 +18,14 @@ public class Board
 
     private void CheckForValidPosition(int x, int y, Player player)
     {
-        if (!string.IsNullOrEmpty(_boardCoordinates[x, y])) throw new IncorrectPosition("Can't play in already used position !!!");
-
+        if (x > 2 || y >2) throw new IncorrectPosition("Can't play in this position, Board is a 3x3 grid.");
+        if (!string.IsNullOrEmpty(_boardCoordinates[x, y])) throw new IncorrectPosition("Can't play in already used position.");
         _boardCoordinates[x, y] = player.ToString();
     }
 
     private void CheckPlayerTurn(Player player)
     {
-        if (player == Player.O && _lastPlayer == Player.Null) throw new IncorrectTurnException("X player must be first");
+        if (player == Player.O && _lastPlayer == Player.Null) throw new IncorrectTurnException("X player must be first.");
 
         if (player.Equals(_lastPlayer)) throw new IncorrectTurnException("Incorrect Turn !!, player can not play twice.");
 
