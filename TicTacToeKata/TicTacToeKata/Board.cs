@@ -1,11 +1,8 @@
-﻿using System.Runtime.CompilerServices;
-using Microsoft.VisualBasic;
-
-namespace TicTacToeKata;
+﻿namespace TicTacToeKata;
 
 public class Board
 {
-    private Player _lastPlayer = Player.Null;
+    private object? _lastPlayer;
     private readonly HashSet<BoardCells> _boardCells= new ();
 
     public static void Main() { }
@@ -29,7 +26,7 @@ public class Board
 
     public void CheckPlayerTurn(Player player)
     {
-        if (player == Player.O && _lastPlayer == Player.Null) throw new IncorrectTurnException("X player must be first.");
+        if (player == Player.O && _lastPlayer == null) throw new IncorrectTurnException("X player must be first.");
 
         if (player.Equals(_lastPlayer)) throw new IncorrectTurnException("Incorrect Turn !!, player can not play twice.");
 
