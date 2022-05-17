@@ -10,10 +10,10 @@ public class Board
 
     public static void Main() { }
 
-    public void Play(Player player, int x, int y)
+    public void Play(Player player, Coordinates coordinates)
     {
         CheckPlayerTurn(player);
-        CheckForValidPosition(x, y, player);
+        CheckForValidPosition(coordinates.X, coordinates.Y, player);
         CheckIfAnyPlayerHasWon();
     }
 
@@ -31,7 +31,7 @@ public class Board
         _boardCoordinates[x, y] = player.ToString();
     }
 
-    private void CheckPlayerTurn(Player player)
+    public void CheckPlayerTurn(Player player)
     {
         if (player == Player.O && _lastPlayer == Player.Null) throw new IncorrectTurnException("X player must be first.");
 

@@ -1,5 +1,10 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=22d018d7_002D891a_002D420a_002D92c0_002D41383373556c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="TicTacToeKataShould #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=22d018d7_002D891a_002D420a_002D92c0_002D41383373556c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TicTacToeKataShould #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::1D1066FE-EF3D-495F-81CD-8E0DEDB5D91E::net6.0::TestTicTacToeKata.TicTacToeKataShould&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=3162efd3_002D4976_002D4af6_002D9ebb_002Dad2c1080d90e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TicTacToeKataShould #4" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::1D1066FE-EF3D-495F-81CD-8E0DEDB5D91E::net6.0::TestTicTacToeKata.TicTacToeKataShould&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
@@ -12,6 +17,17 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=7bdce562_002D9b7e_002D4ef8_002Da5ff_002Da073d0f33936/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TicTacToeKataShould #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::1D1066FE-EF3D-495F-81CD-8E0DEDB5D91E::net6.0::TestTicTacToeKata.TicTacToeKataShould&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=889d6973_002Df879_002D4a37_002Daf27_002D7f6166c05d85/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="APlayerCanNotPlayInAlreadyUsedPosition" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::1D1066FE-EF3D-495F-81CD-8E0DEDB5D91E::net6.0::TestTicTacToeKata.TicTacToeKataShould.APlayerCanNotPlayInAlreadyUsedPosition&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=a4e2f2f9_002D68e7_002D4b36_002Da942_002D727d92887d93/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="APlayerCanNotPlayTwice2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::1D1066FE-EF3D-495F-81CD-8E0DEDB5D91E::net6.0::TestTicTacToeKata.TicTacToeKataShould.APlayerCanNotPlayTwice2&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::1D1066FE-EF3D-495F-81CD-8E0DEDB5D91E::net6.0::TestTicTacToeKata.TicTacToeKataShould.AGameIsOverWhenAllFieldsInARowAreRTakenByAPlayer&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=bbe1fd7c_002D0eae_002D4b5b_002Dbbfc_002Dec5e5f531674/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="APlayerCanNotPlayTwice" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;

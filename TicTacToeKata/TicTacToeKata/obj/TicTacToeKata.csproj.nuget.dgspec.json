@@ -25,9 +25,9 @@
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://aidacanarias.pkgs.visualstudio.com/_packaging/aida-dev-packages/nuget/v3/index.json": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://www.myget.org/F/aidacanarias/auth/91440d25-96ec-4958-861c-c4cac6f1192c/api/v2": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
