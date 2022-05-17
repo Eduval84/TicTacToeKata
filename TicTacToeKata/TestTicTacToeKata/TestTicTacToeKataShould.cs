@@ -1,3 +1,4 @@
+using System;
 using FluentAssertions;
 using Xunit;
 using TicTacToeKata;
@@ -79,6 +80,20 @@ namespace TestTicTacToeKata
 
             action.Should().Throw<IncorrectPosition>().WithMessage("Can't play in this position, Board is a 3x3 grid."); ;
 
+        }
+
+        [Fact]
+        public void AGameIsOverWhenAllFieldsInARowAreRTakenByAPlayer()
+        {
+            _board.Play(Player.X, 0, 0);
+            _board.Play(Player.O, 1, 1);
+            _board.Play(Player.X, 0, 1);
+            _board.Play(Player.O, 2, 1);
+
+            var action = () => _board.Play(Player.O, 0, 2);
+
+            var winner = Console.ReadLine();
+            Assert.Equal("Player x win the game, a Row just completed.",winner);
         }
 
     }

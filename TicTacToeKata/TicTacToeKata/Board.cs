@@ -1,24 +1,29 @@
-﻿using Microsoft.VisualBasic;
+﻿using System.Runtime.CompilerServices;
+using Microsoft.VisualBasic;
 
 namespace TicTacToeKata;
 
 public class Board
 {
-    private Player _lastPlayer= Player.Null;
-    private readonly string [,] _boardCoordinates = new string[3,3];
+    private Player _lastPlayer = Player.Null;
+    private readonly string[,] _boardCoordinates = new string[3, 3];
 
-    public static void Main(){}
-        
+    public static void Main() { }
+
     public void Play(Player player, int x, int y)
     {
         CheckPlayerTurn(player);
-
         CheckForValidPosition(x, y, player);
+        CheckIfAnyPlayerHasWon();
+    }
+
+    private void CheckIfAnyPlayerHasWon()
+    {
     }
 
     private void CheckForValidPosition(int x, int y, Player player)
     {
-        if (x > 2 || y >2) throw new IncorrectPosition("Can't play in this position, Board is a 3x3 grid.");
+        if (x > 2 || y > 2) throw new IncorrectPosition("Can't play in this position, Board is a 3x3 grid.");
         if (!string.IsNullOrEmpty(_boardCoordinates[x, y])) throw new IncorrectPosition("Can't play in already used position.");
         _boardCoordinates[x, y] = player.ToString();
     }
