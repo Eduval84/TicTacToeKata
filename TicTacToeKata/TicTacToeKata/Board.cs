@@ -19,6 +19,9 @@ public class Board
 
     private void CheckIfAnyPlayerHasWon()
     {
+        //entidad propia fila
+        //entidad propia columna
+        //coleccion de celdas??
     }
 
     private void CheckForValidPosition(int x, int y, Player player)
