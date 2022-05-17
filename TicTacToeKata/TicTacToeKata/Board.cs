@@ -11,16 +11,14 @@ public class Board
     {
         CheckPlayerTurn(player);
 
-        CheckForValidPosition(x, y);
-
-        _boardCoordinates[x, y] = player.ToString();
-
+        CheckForValidPosition(x, y, player);
     }
 
-    private void CheckForValidPosition(int X, int Y)
+    private void CheckForValidPosition(int x, int y, Player player)
     {
-        if (!string.IsNullOrEmpty(_boardCoordinates[X, Y]))
-            throw new IncorrectPosition("Can't play in already used position !!!");
+        if (!string.IsNullOrEmpty(_boardCoordinates[x, y])) throw new IncorrectPosition("Can't play in already used position !!!");
+
+        _boardCoordinates[x, y] = player.ToString();
     }
 
     private void CheckPlayerTurn(Player player)
