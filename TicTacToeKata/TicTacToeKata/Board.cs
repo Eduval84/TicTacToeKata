@@ -6,29 +6,25 @@ namespace TicTacToeKata;
 public class Board
 {
     private Player _lastPlayer = Player.Null;
-    private readonly string[,] _boardCoordinates = new string[3, 3];
+    private readonly HashSet<BoardCells> _boardCells= new ();
 
     public static void Main() { }
 
-    public void Play(Player player, Coordinates coordinates)
+    public void Play(Player player, BoardCells boardCells)
     {
         CheckPlayerTurn(player);
-        CheckForValidPosition(coordinates.X, coordinates.Y, player);
+        CheckForValidPosition(boardCells, player);
         CheckIfAnyPlayerHasWon();
     }
 
     private void CheckIfAnyPlayerHasWon()
     {
-        //entidad propia fila
-        //entidad propia columna
-        //coleccion de celdas??
     }
 
-    private void CheckForValidPosition(int x, int y, Player player)
+    private void CheckForValidPosition(BoardCells boardCells, Player player)
     {
-        if (x > 2 || y > 2) throw new IncorrectPosition("Can't play in this position, Board is a 3x3 grid.");
-        if (!string.IsNullOrEmpty(_boardCoordinates[x, y])) throw new IncorrectPosition("Can't play in already used position.");
-        _boardCoordinates[x, y] = player.ToString();
+        if (_boardCells.Contains(boardCells)) throw new IncorrectPosition("Can't play in already used position.");
+        _boardCells.Add(boardCells);
     }
 
     public void CheckPlayerTurn(Player player)
