@@ -73,7 +73,7 @@ namespace TestTicTacToeKata
         }
 
         [Fact]
-        public void ABoardHasNineFiedlsInA3x3Grid()
+        public void ABoardHasNineFiedlsInA3X3Grid()
         {
             var action = () => _board.Play(Player.X, 4, 0);
 
