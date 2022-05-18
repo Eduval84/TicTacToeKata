@@ -72,17 +72,40 @@ namespace TestTicTacToeKata
         }
 
         [Fact]
-        public void AGameIsOverWhenAllFieldsInARowAreTakenByAPlayer()
+        public void AGameIsOverWhenAllTopFieldsInARowAreTakenByAPlayer()
         {
             _board.Play(Player.X, BoardCells.TopLeft);
             _board.Play(Player.O, BoardCells.DownLeft);
             _board.Play(Player.X, BoardCells.TopMiddle);
             _board.Play(Player.O, BoardCells.DownMiddle);
+            _board.Play(Player.X, BoardCells.TopRigth);
 
-            var action = () => _board.Play(Player.O, BoardCells.TopRigth);
+            _board.GetWinner().Should().Be(Player.X);
+        }
 
-            var winner = Console.ReadLine();
-            Assert.Equal("Player x win the game, a Row just completed.",winner);
+        [Fact]
+        public void AGameIsOverWhenAllMidFieldsInARowAreTakenByAPlayer()
+        {
+            _board.Play(Player.X, BoardCells.TopLeft);
+            _board.Play(Player.O, BoardCells.MiddleLeft);
+            _board.Play(Player.X, BoardCells.TopMiddle);
+            _board.Play(Player.O, BoardCells.Middle);
+            _board.Play(Player.X, BoardCells.DownLeft);
+            _board.Play(Player.O, BoardCells.MiddleRigth);
+
+            _board.GetWinner().Should().Be(Player.O);
+        }
+
+        [Fact]
+        public void AGameIsOverWhenAllDownFieldsInARowAreTakenByAPlayer()
+        {
+            _board.Play(Player.X, BoardCells.DownLeft);
+            _board.Play(Player.O, BoardCells.MiddleLeft);
+            _board.Play(Player.X, BoardCells.DownMiddle);
+            _board.Play(Player.O, BoardCells.Middle);
+            _board.Play(Player.X, BoardCells.DownRigth);
+       
+            _board.GetWinner().Should().Be(Player.X);
         }
 
     }
