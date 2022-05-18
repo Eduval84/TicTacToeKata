@@ -32,23 +32,22 @@ public class Board
 
     public Player GetWinner()
     {
-        return CheckIfAnyPlayerHasWon();
+        return CheckIfAnyPlayerHasWon(new WinningCellSet(new() { BoardCells.TopLeft, BoardCells.TopMiddle, BoardCells.TopRigth }));
     }
 
-    private Player CheckIfAnyPlayerHasWon()
+    private Player CheckIfAnyPlayerHasWon(WinningCellSet winningCellSet)
     {
 
         Player? winner = null;
-        List<BoardCells> topWinningCells = new() { BoardCells.TopLeft, BoardCells.TopMiddle, BoardCells.TopRigth };
         List<BoardCells> middleWinningCells = new() { BoardCells.MiddleLeft, BoardCells.Middle, BoardCells.MiddleRigth };
         List<BoardCells> downWinningCells = new() { BoardCells.DownLeft, BoardCells.DownMiddle, BoardCells.DownRigth };
 
-        if (CheckIfAPlayerHasWonByCompletingARow(Player.X, topWinningCells))
+        if (CheckIfAPlayerHasWonByCompletingARow(Player.X, winningCellSet.WinningCells))
         {
             return Player.X;
         }
 
-        if (CheckIfAPlayerHasWonByCompletingARow(Player.O, topWinningCells))
+        if (CheckIfAPlayerHasWonByCompletingARow(Player.O, winningCellSet.WinningCells))
         {
             return Player.O;
         }
