@@ -39,45 +39,36 @@ public class Board
     {
 
         Player? winner = null;
+        List<BoardCells> topWinningCells = new List<BoardCells> { BoardCells.TopLeft, BoardCells.TopMiddle, BoardCells.TopRigth };
+        List<BoardCells> middleWinningCells = new List<BoardCells> { BoardCells.MiddleLeft, BoardCells.Middle, BoardCells.MiddleRigth };
+        List<BoardCells> downWinningCells = new List<BoardCells> { BoardCells.DownLeft, BoardCells.DownMiddle, BoardCells.DownRigth };
 
-        if ((_boardCells.ContainsKey(BoardCells.TopLeft) && _boardCells[BoardCells.TopLeft] == Player.X) &&
-            (_boardCells.ContainsKey(BoardCells.TopMiddle) && _boardCells[BoardCells.TopMiddle] == Player.X) &&
-            _boardCells.ContainsKey(BoardCells.TopRigth) && _boardCells[BoardCells.TopRigth] == Player.X)
+        if (CheckIfAPlayerHasWonByCompletingARow(Player.X, topWinningCells))
         {
             return Player.X;
         }
 
-        if ((_boardCells.ContainsKey(BoardCells.TopLeft) && _boardCells[BoardCells.TopLeft] == Player.O) &&
-            (_boardCells.ContainsKey(BoardCells.TopMiddle) && _boardCells[BoardCells.TopMiddle] == Player.O) &&
-            _boardCells.ContainsKey(BoardCells.TopRigth) && _boardCells[BoardCells.TopRigth] == Player.O)
-        {
-            return Player.X;
-        }
-
-        if ((_boardCells.ContainsKey(BoardCells.MiddleLeft) && _boardCells[BoardCells.MiddleLeft] == Player.X) &&
-            (_boardCells.ContainsKey(BoardCells.Middle) && _boardCells[BoardCells.Middle] == Player.X) &&
-            _boardCells.ContainsKey(BoardCells.MiddleRigth) && _boardCells[BoardCells.MiddleRigth] == Player.X)
-        {
-            return Player.X;
-        }
-
-        if ((_boardCells.ContainsKey(BoardCells.MiddleLeft) && _boardCells[BoardCells.MiddleLeft] == Player.O) &&
-            (_boardCells.ContainsKey(BoardCells.Middle) && _boardCells[BoardCells.Middle] == Player.O) &&
-            _boardCells.ContainsKey(BoardCells.MiddleRigth) && _boardCells[BoardCells.MiddleRigth] == Player.O)
+        if (CheckIfAPlayerHasWonByCompletingARow(Player.O, topWinningCells))
         {
             return Player.O;
         }
 
-        if ((_boardCells.ContainsKey(BoardCells.DownLeft) && _boardCells[BoardCells.DownLeft] == Player.X) &&
-            (_boardCells.ContainsKey(BoardCells.DownMiddle) && _boardCells[BoardCells.DownMiddle] == Player.X) &&
-            _boardCells.ContainsKey(BoardCells.DownLeft) && _boardCells[BoardCells.DownLeft] == Player.X)
+        if (CheckIfAPlayerHasWonByCompletingARow(Player.X, middleWinningCells))
         {
             return Player.X;
         }
 
-        if ((_boardCells.ContainsKey(BoardCells.DownLeft) && _boardCells[BoardCells.DownLeft] == Player.O) &&
-            (_boardCells.ContainsKey(BoardCells.DownMiddle) && _boardCells[BoardCells.DownMiddle] == Player.O) &&
-            _boardCells.ContainsKey(BoardCells.DownLeft) && _boardCells[BoardCells.DownLeft] == Player.O)
+        if (CheckIfAPlayerHasWonByCompletingARow(Player.O, middleWinningCells))
+        {
+            return Player.O;
+        }
+
+        if (CheckIfAPlayerHasWonByCompletingARow(Player.X, downWinningCells))
+        {
+            return Player.X;
+        }
+
+        if (CheckIfAPlayerHasWonByCompletingARow(Player.O, downWinningCells))
         {
             return Player.O;
         }
@@ -86,5 +77,13 @@ public class Board
 
     }
 
-  
+    private bool CheckIfAPlayerHasWonByCompletingARow(Player player, List<BoardCells> winningRow) {
+        
+        return winningRow.All(cell => IsCellPlayerByPlayer(cell, player));
+    }
+
+    private bool IsCellPlayerByPlayer(BoardCells cell, Player player)
+    {
+        return _boardCells.ContainsKey(cell) && _boardCells[cell] == player;
+    }
 }
