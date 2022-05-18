@@ -32,42 +32,43 @@ public class Board
 
     public Player GetWinner()
     {
-        return CheckIfAnyPlayerHasWon(new WinningCellSet(new() { BoardCells.TopLeft, BoardCells.TopMiddle, BoardCells.TopRigth }));
+        return CheckIfAnyPlayerHasWon();
     }
 
-    private Player CheckIfAnyPlayerHasWon(WinningCellSet winningCellSet)
+    private Player CheckIfAnyPlayerHasWon()
     {
 
         Player? winner = null;
-        List<BoardCells> middleWinningCells = new() { BoardCells.MiddleLeft, BoardCells.Middle, BoardCells.MiddleRigth };
-        List<BoardCells> downWinningCells = new() { BoardCells.DownLeft, BoardCells.DownMiddle, BoardCells.DownRigth };
+        var winningTopCellSet = new WinningCellSet(new() { BoardCells.TopLeft, BoardCells.TopMiddle, BoardCells.TopRigth });
+        var winningMiddleCellSet = new WinningCellSet(new() { BoardCells.MiddleLeft, BoardCells.Middle, BoardCells.MiddleRigth });
+        var winningDownCellSet = new WinningCellSet(new() { BoardCells.DownLeft, BoardCells.DownMiddle, BoardCells.DownRigth });
 
-        if (CheckIfAPlayerHasWonByCompletingARow(Player.X, winningCellSet.WinningCells))
+        if (CheckIfAPlayerHasWonByCompletingARow(Player.X, winningTopCellSet.WinningCells))
         {
             return Player.X;
         }
 
-        if (CheckIfAPlayerHasWonByCompletingARow(Player.O, winningCellSet.WinningCells))
+        if (CheckIfAPlayerHasWonByCompletingARow(Player.O, winningTopCellSet.WinningCells))
         {
             return Player.O;
         }
 
-        if (CheckIfAPlayerHasWonByCompletingARow(Player.X, middleWinningCells))
+        if (CheckIfAPlayerHasWonByCompletingARow(Player.X, winningMiddleCellSet.WinningCells))
         {
             return Player.X;
         }
 
-        if (CheckIfAPlayerHasWonByCompletingARow(Player.O, middleWinningCells))
+        if (CheckIfAPlayerHasWonByCompletingARow(Player.O, winningMiddleCellSet.WinningCells))
         {
             return Player.O;
         }
 
-        if (CheckIfAPlayerHasWonByCompletingARow(Player.X, downWinningCells))
+        if (CheckIfAPlayerHasWonByCompletingARow(Player.X, winningDownCellSet.WinningCells))
         {
             return Player.X;
         }
 
-        if (CheckIfAPlayerHasWonByCompletingARow(Player.O, downWinningCells))
+        if (CheckIfAPlayerHasWonByCompletingARow(Player.O, winningDownCellSet.WinningCells))
         {
             return Player.O;
         }
