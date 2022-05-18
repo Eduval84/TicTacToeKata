@@ -72,7 +72,7 @@ namespace TestTicTacToeKata
         }
 
         [Fact]
-        public void AGameIsOverWhenAllFieldsInARowAreRTakenByAPlayer()
+        public void AGameIsOverWhenAllFieldsInARowAreTakenByAPlayer()
         {
             _board.Play(Player.X, BoardCells.TopLeft);
             _board.Play(Player.O, BoardCells.DownLeft);
