@@ -21,7 +21,7 @@ public class Board
         _boardCells.Add(boardCells,player);
     }
 
-    public void CheckPlayerTurn(Player player)
+    private void CheckPlayerTurn(Player player)
     {
         if (player == Player.O && _lastPlayer == null) throw new IncorrectTurnException("X player must be first.");
 
