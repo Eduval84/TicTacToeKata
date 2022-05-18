@@ -43,43 +43,21 @@ public class Board
         var winningMiddleCellSet = new WinningCellSet(new() { BoardCells.MiddleLeft, BoardCells.Middle, BoardCells.MiddleRigth });
         var winningDownCellSet = new WinningCellSet(new() { BoardCells.DownLeft, BoardCells.DownMiddle, BoardCells.DownRigth });
 
-        if (CheckIfAPlayerHasWonByCompletingARow(Player.X, winningTopCellSet.WinningCells))
-        {
-            return Player.X;
-        }
+        List<WinningCellSet> winningCellSetList = new() {winningTopCellSet,winningMiddleCellSet,winningDownCellSet};
+        List<Player> winningPlayers = new() {Player.X, Player.O};
 
-        if (CheckIfAPlayerHasWonByCompletingARow(Player.O, winningTopCellSet.WinningCells))
+        foreach (var player in from winningCellSet in winningCellSetList from player in winningPlayers where CheckIfAPlayerHasWonByCompletingAWinningCellSet(player, winningCellSet.WinningCells) select player)
         {
-            return Player.O;
-        }
-
-        if (CheckIfAPlayerHasWonByCompletingARow(Player.X, winningMiddleCellSet.WinningCells))
-        {
-            return Player.X;
-        }
-
-        if (CheckIfAPlayerHasWonByCompletingARow(Player.O, winningMiddleCellSet.WinningCells))
-        {
-            return Player.O;
-        }
-
-        if (CheckIfAPlayerHasWonByCompletingARow(Player.X, winningDownCellSet.WinningCells))
-        {
-            return Player.X;
-        }
-
-        if (CheckIfAPlayerHasWonByCompletingARow(Player.O, winningDownCellSet.WinningCells))
-        {
-            return Player.O;
+            return player;
         }
 
         return (Player)winner;
 
     }
 
-    private bool CheckIfAPlayerHasWonByCompletingARow(Player player, IEnumerable<BoardCells> winningRow) {
+    private bool CheckIfAPlayerHasWonByCompletingAWinningCellSet(Player player, IEnumerable<BoardCells> winningCellSet) {
         
-        return winningRow.All(cell => IsCellPlayerByPlayer(cell, player));
+        return winningCellSet.All(cell => IsCellPlayerByPlayer(cell, player));
     }
 
     private bool IsCellPlayerByPlayer(BoardCells cell, Player player)
