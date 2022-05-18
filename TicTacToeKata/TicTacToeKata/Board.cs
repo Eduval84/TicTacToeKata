@@ -39,9 +39,9 @@ public class Board
     {
 
         Player? winner = null;
-        List<BoardCells> topWinningCells = new List<BoardCells> { BoardCells.TopLeft, BoardCells.TopMiddle, BoardCells.TopRigth };
-        List<BoardCells> middleWinningCells = new List<BoardCells> { BoardCells.MiddleLeft, BoardCells.Middle, BoardCells.MiddleRigth };
-        List<BoardCells> downWinningCells = new List<BoardCells> { BoardCells.DownLeft, BoardCells.DownMiddle, BoardCells.DownRigth };
+        List<BoardCells> topWinningCells = new() { BoardCells.TopLeft, BoardCells.TopMiddle, BoardCells.TopRigth };
+        List<BoardCells> middleWinningCells = new() { BoardCells.MiddleLeft, BoardCells.Middle, BoardCells.MiddleRigth };
+        List<BoardCells> downWinningCells = new() { BoardCells.DownLeft, BoardCells.DownMiddle, BoardCells.DownRigth };
 
         if (CheckIfAPlayerHasWonByCompletingARow(Player.X, topWinningCells))
         {
@@ -77,7 +77,7 @@ public class Board
 
     }
 
-    private bool CheckIfAPlayerHasWonByCompletingARow(Player player, List<BoardCells> winningRow) {
+    private bool CheckIfAPlayerHasWonByCompletingARow(Player player, IEnumerable<BoardCells> winningRow) {
         
         return winningRow.All(cell => IsCellPlayerByPlayer(cell, player));
     }
