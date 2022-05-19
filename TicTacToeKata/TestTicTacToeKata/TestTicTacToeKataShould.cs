@@ -133,5 +133,17 @@ namespace TestTicTacToeKata
             _board.GetWinner().Should().Be(Player.O);
         }
 
+        [Fact]
+        public void AGameIsOverWhenAllLastColumnCellsAreTakenByTheSamePlayer()
+        {
+            _board.Play(Player.X, BoardCells.TopRigth);
+            _board.Play(Player.O, BoardCells.TopMiddle);
+            _board.Play(Player.X, BoardCells.MiddleRigth);
+            _board.Play(Player.O, BoardCells.Middle);
+            _board.Play(Player.X, BoardCells.DownRigth);
+
+            _board.GetWinner().Should().Be(Player.X);
+        }
+
     }
 }
