@@ -169,5 +169,21 @@ namespace TestTicTacToeKata
             _board.GetWinner().Should().Be(Player.X);
         }
 
+        [Fact]
+        public void AGameIsOverWhenAllCellsAreTaken()
+        {
+            _board.Play(Player.X, BoardCells.TopRigth);
+            _board.Play(Player.O, BoardCells.TopMiddle);
+            _board.Play(Player.X, BoardCells.TopLeft);
+            _board.Play(Player.O, BoardCells.MiddleLeft);
+            _board.Play(Player.X, BoardCells.Middle);
+            _board.Play(Player.O, BoardCells.MiddleRigth);
+            _board.Play(Player.X, BoardCells.DownLeft);
+            _board.Play(Player.O, BoardCells.DownMiddle);
+            _board.Play(Player.X, BoardCells.DownRigth);
+
+            _board.ThereAreAllCellsOfTheBoardCompleted().Should().BeTrue();
+        }
+
     }
 }

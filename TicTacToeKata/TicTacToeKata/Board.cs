@@ -68,4 +68,9 @@ public class Board
     {
         return _boardCells.ContainsKey(cell) && _boardCells[cell] == player;
     }
+
+    public bool ThereAreAllCellsOfTheBoardCompleted()
+    {
+        throw new NotImplementedException();
+    }
 }
