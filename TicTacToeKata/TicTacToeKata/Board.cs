@@ -5,6 +5,8 @@ namespace TicTacToeKata;
 public class Board
 {
     private Player? _lastPlayer;
+    private Player? _winner;
+    private readonly List<Player> _winningPlayers = new() { Player.X, Player.O };
     private readonly Dictionary<BoardCells,Player> _boardCells= new ();
 
     public static void Main() { }
@@ -32,27 +34,25 @@ public class Board
 
     public Player GetWinner()
     {
-        return CheckIfAnyPlayerHasWon();
+        CheckIfAnyPlayerHasWon();
+        return (Player) _winner;
     }
 
-    private Player CheckIfAnyPlayerHasWon()
+    private void CheckIfAnyPlayerHasWon()
     {
 
-        Player? winner = null;
         var winningTopCellSet = new WinningCellSet(new() { BoardCells.TopLeft, BoardCells.TopMiddle, BoardCells.TopRigth });
         var winningMiddleCellSet = new WinningCellSet(new() { BoardCells.MiddleLeft, BoardCells.Middle, BoardCells.MiddleRigth });
         var winningDownCellSet = new WinningCellSet(new() { BoardCells.DownLeft, BoardCells.DownMiddle, BoardCells.DownRigth });
 
         List<WinningCellSet> winningCellSetList = new() {winningTopCellSet,winningMiddleCellSet,winningDownCellSet};
-        List<Player> winningPlayers = new() {Player.X, Player.O};
+        
 
-        foreach (var player in from winningCellSet in winningCellSetList from player in winningPlayers where CheckIfAPlayerHasWonByCompletingAWinningCellSet(player, winningCellSet.WinningCells) select player)
+        foreach (var player in from winningCellSet in winningCellSetList from player in _winningPlayers where CheckIfAPlayerHasWonByCompletingAWinningCellSet(player, winningCellSet.WinningCells) select player)
         {
-            return player;
+            _winner = player;
+            return;
         }
-
-        return (Player)winner;
-
     }
 
     private bool CheckIfAPlayerHasWonByCompletingAWinningCellSet(Player player, IEnumerable<BoardCells> winningCellSet) {
