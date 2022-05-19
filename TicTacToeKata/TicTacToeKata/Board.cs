@@ -47,8 +47,9 @@ public class Board
         var winningFirstColumnsCellSet = new WinningCellSet(new() { BoardCells.TopLeft, BoardCells.MiddleLeft, BoardCells.DownLeft });
         var winningMiddleColumnsCellSet = new WinningCellSet(new() { BoardCells.TopMiddle, BoardCells.Middle, BoardCells.DownMiddle });
         var winningLastColumnsCellSet = new WinningCellSet(new() { BoardCells.TopRigth, BoardCells.MiddleRigth, BoardCells.DownRigth });
+        var winningADiagonalColumnsCellSet = new WinningCellSet(new() { BoardCells.TopLeft, BoardCells.Middle, BoardCells.DownRigth });
 
-        List<WinningCellSet> winningCellSetList = new() {winningTopCellSet,winningMiddleCellSet,winningDownCellSet, winningFirstColumnsCellSet, winningMiddleColumnsCellSet, winningLastColumnsCellSet };
+        List<WinningCellSet> winningCellSetList = new() {winningTopCellSet,winningMiddleCellSet,winningDownCellSet, winningFirstColumnsCellSet, winningMiddleColumnsCellSet, winningLastColumnsCellSet, winningADiagonalColumnsCellSet };
         
 
         foreach (var player in from winningCellSet in winningCellSetList from player in _winningPlayers where CheckIfAPlayerHasWonByCompletingAWinningCellSet(player, winningCellSet.WinningCells) select player)
