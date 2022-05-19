@@ -71,6 +71,7 @@ public class Board
 
     public bool ThereAreAllCellsOfTheBoardCompleted()
     {
-        throw new NotImplementedException();
+        var playFinishWhenAllCellsAreTaken = new WinningCellSet(new() { BoardCells.TopLeft, BoardCells.TopMiddle, BoardCells.TopRigth, BoardCells.MiddleLeft, BoardCells.Middle,BoardCells.MiddleRigth, BoardCells.DownLeft, BoardCells.DownMiddle, BoardCells.DownRigth });
+        return playFinishWhenAllCellsAreTaken.WinningCells.All(cell => _boardCells.ContainsKey(cell));
     }
 }
