@@ -21,7 +21,7 @@ namespace TestTicTacToeKata
         {
             var action = () =>  _board.Play(Player.O, BoardCells.TopLeft);
 
-            action.Should().Throw<IncorrectTurnException>().WithMessage("X player must be first.");
+            action.Should().Throw<IncorrectTurn>().WithMessage("X player must be first.");
         }
 
         [Fact]
@@ -29,7 +29,7 @@ namespace TestTicTacToeKata
         {
             var action = () => _board.Play(Player.X, BoardCells.TopMiddle);
 
-            action.Should().NotThrow<IncorrectTurnException>();
+            action.Should().NotThrow<IncorrectTurn>();
         }
 
         [Fact]
@@ -39,7 +39,7 @@ namespace TestTicTacToeKata
             _board.Play(Player.O, BoardCells.MiddleLeft);
             var action = () => _board.Play(Player.O, BoardCells.Middle);
 
-            action.Should().Throw<IncorrectTurnException>().WithMessage("Incorrect Turn !!, player can not play twice.");
+            action.Should().Throw<IncorrectTurn>().WithMessage("Incorrect Turn !!, player can not play twice.");
         }
         
         [Fact]
@@ -49,7 +49,7 @@ namespace TestTicTacToeKata
             _board.Play(Player.O, BoardCells.DownLeft);
             var action = () => _board.Play(Player.X, BoardCells.DownMiddle);
 
-            action.Should().NotThrow<IncorrectTurnException>();
+            action.Should().NotThrow<IncorrectTurn>();
         }
 
         [Fact]
@@ -59,7 +59,7 @@ namespace TestTicTacToeKata
 
             var action = () => _board.Play(Player.O, BoardCells.DownRigth);
 
-            action.Should().Throw<IncorrectPosition>().WithMessage("Can't play in already used position."); ;
+            action.Should().Throw<IncorrectPosition>().WithMessage("Can't play in already used position.");
         }
 
         [Fact]
@@ -68,7 +68,6 @@ namespace TestTicTacToeKata
             var numBoardCells = Enum.GetValues(typeof(BoardCells)).Length;
 
             Assert.Equal(9,numBoardCells);
-
         }
 
         [Fact]
@@ -182,7 +181,25 @@ namespace TestTicTacToeKata
             _board.Play(Player.O, BoardCells.DownMiddle);
             _board.Play(Player.X, BoardCells.DownRigth);
 
-            _board.ThereAreAllCellsOfTheBoardCompleted().Should().BeTrue();
+            _board.AllCellsOfTheBoardCompleted().Should().BeTrue();
+        }
+
+        [Fact]
+        public void CanNotPlayWhenAGameIsOver()
+        {
+            _board.Play(Player.X, BoardCells.TopRigth);
+            _board.Play(Player.O, BoardCells.TopMiddle);
+            _board.Play(Player.X, BoardCells.TopLeft);
+            _board.Play(Player.O, BoardCells.MiddleLeft);
+            _board.Play(Player.X, BoardCells.Middle);
+            _board.Play(Player.O, BoardCells.MiddleRigth);
+            _board.Play(Player.X, BoardCells.DownLeft);
+            _board.Play(Player.O, BoardCells.DownMiddle);
+            _board.Play(Player.X, BoardCells.DownRigth);
+
+            var action = () => _board.Play(Player.X, BoardCells.DownMiddle);
+
+            action.Should().Throw<GameOver>().WithMessage("Game over, the board it is completed."); ;
         }
 
     }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic;
+using TestTicTacToeKata;
 
 namespace TicTacToeKata;
 
@@ -13,7 +14,8 @@ public class Board
 
     public void Play(Player player, BoardCells boardCells)
     {
-        CheckPlayerTurn(player);
+        if (AllCellsOfTheBoardCompleted()) throw new GameOver("Game over, the board it is completed.");
+            CheckPlayerTurn(player);
         CheckForValidPosition(boardCells, player);
     }
 
@@ -25,9 +27,9 @@ public class Board
 
     private void CheckPlayerTurn(Player player)
     {
-        if (player == Player.O && _lastPlayer == null) throw new IncorrectTurnException("X player must be first.");
+        if (player == Player.O && _lastPlayer == null) throw new IncorrectTurn("X player must be first.");
 
-        if (player.Equals(_lastPlayer)) throw new IncorrectTurnException("Incorrect Turn !!, player can not play twice.");
+        if (player.Equals(_lastPlayer)) throw new IncorrectTurn("Incorrect Turn !!, player can not play twice.");
 
         _lastPlayer = player;
     }
@@ -69,7 +71,7 @@ public class Board
         return _boardCells.ContainsKey(cell) && _boardCells[cell] == player;
     }
 
-    public bool ThereAreAllCellsOfTheBoardCompleted()
+    public bool AllCellsOfTheBoardCompleted()
     {
         var playFinishWhenAllCellsAreTaken = new WinningCellSet(new() { BoardCells.TopLeft, BoardCells.TopMiddle, BoardCells.TopRigth, BoardCells.MiddleLeft, BoardCells.Middle,BoardCells.MiddleRigth, BoardCells.DownLeft, BoardCells.DownMiddle, BoardCells.DownRigth });
         return playFinishWhenAllCellsAreTaken.WinningCells.All(cell => _boardCells.ContainsKey(cell));
