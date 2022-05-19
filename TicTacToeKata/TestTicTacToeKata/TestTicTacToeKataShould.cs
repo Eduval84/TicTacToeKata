@@ -63,7 +63,7 @@ namespace TestTicTacToeKata
         }
 
         [Fact]
-        public void ABoardHasNineFiedlsInA3X3Grid()
+        public void ABoardHasNineCellsInA3X3Grid()
         {
             var numBoardCells = Enum.GetValues(typeof(BoardCells)).Length;
 
@@ -72,7 +72,7 @@ namespace TestTicTacToeKata
         }
 
         [Fact]
-        public void AGameIsOverWhenAllTopFieldsInARowAreTakenByAPlayer()
+        public void AGameIsOverWhenAllTopCellsInARowAreTakenByTheSamePlayer()
         {
             _board.Play(Player.X, BoardCells.TopLeft);
             _board.Play(Player.O, BoardCells.DownLeft);
@@ -84,7 +84,7 @@ namespace TestTicTacToeKata
         }
 
         [Fact]
-        public void AGameIsOverWhenAllMidFieldsInARowAreTakenByAPlayer()
+        public void AGameIsOverWhenAllMidCellsInARowAreTakenByTheSamePlayer()
         {
             _board.Play(Player.X, BoardCells.TopLeft);
             _board.Play(Player.O, BoardCells.MiddleLeft);
@@ -97,7 +97,7 @@ namespace TestTicTacToeKata
         }
 
         [Fact]
-        public void AGameIsOverWhenAllDownFieldsInARowAreTakenByAPlayer()
+        public void AGameIsOverWhenAllDownCellsInARowAreTakenByTheSamePlayer()
         {
             _board.Play(Player.X, BoardCells.DownLeft);
             _board.Play(Player.O, BoardCells.MiddleLeft);
@@ -106,6 +106,31 @@ namespace TestTicTacToeKata
             _board.Play(Player.X, BoardCells.DownRigth);
        
             _board.GetWinner().Should().Be(Player.X);
+        }
+
+        [Fact]
+        public void AGameIsOverWhenAllFirstColumnCellsAreTakenByTheSamePlayer()
+        {
+            _board.Play(Player.X, BoardCells.TopLeft);
+            _board.Play(Player.O, BoardCells.TopMiddle);
+            _board.Play(Player.X, BoardCells.MiddleLeft);
+            _board.Play(Player.O, BoardCells.Middle);
+            _board.Play(Player.X, BoardCells.DownLeft);
+
+            _board.GetWinner().Should().Be(Player.X);
+        }
+
+        [Fact]
+        public void AGameIsOverWhenAllMiddleColumnCellsAreTakenByTheSamePlayer()
+        {
+            _board.Play(Player.X, BoardCells.TopLeft);
+            _board.Play(Player.O, BoardCells.TopMiddle);
+            _board.Play(Player.X, BoardCells.TopRigth);
+            _board.Play(Player.O, BoardCells.Middle);
+            _board.Play(Player.X, BoardCells.DownLeft);
+            _board.Play(Player.O, BoardCells.DownMiddle);
+
+            _board.GetWinner().Should().Be(Player.O);
         }
 
     }
